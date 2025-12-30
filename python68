@@ -1,0 +1,48 @@
+pessoas = []
+
+for c in range(1, 5):
+    while True:
+        nome = input(f'Digite o nome da {c}ª pessoa: ').strip()
+        if nome:
+            break
+        print('Nome não pode ser vazio.')
+    
+    while True:
+        try:
+            sexo_input = int(input(f'Digite o sexo da {c}ª pessoa [1] Masculino [2] Feminino: '))
+            if sexo_input == 1:
+                sexo = 'Masculino'
+                break
+            elif sexo_input == 2:
+                sexo = 'Feminino'
+                break
+            else:
+                print('Digite 1 para Masculino ou 2 para Feminino.')
+        except ValueError:
+            print('Digite um número válido.')
+    
+    while True:
+        try:
+            idade = int(input(f'Digite a idade da {c}ª pessoa: '))
+            if idade > 0:
+                break
+            else:
+                print('Idade deve ser maior que 0.')
+        except ValueError:
+            print('Digite um número válido para a idade.')
+    
+    pessoas.append({'nome': nome, 'sexo': sexo, 'idade': idade})
+    print(f'Pessoa {c}: Nome: {nome}, Sexo: {sexo}, Idade: {idade}')
+
+# Encontrar maior e menor idade
+idades = [p['idade'] for p in pessoas]
+maior_idade = max(idades)
+menor_idade = min(idades)
+media_idade = sum(idades) / len(idades)
+
+pessoa_maior = next(p for p in pessoas if p['idade'] == maior_idade)
+pessoa_menor = next(p for p in pessoas if p['idade'] == menor_idade)
+
+print(f'A pessoa com maior idade é {pessoa_maior["nome"]} com {maior_idade} anos.')
+print(f'A pessoa com menor idade é {pessoa_menor["nome"]} com {menor_idade} anos.')
+print(f'E a media das idades é {media_idade:.2f}.')
