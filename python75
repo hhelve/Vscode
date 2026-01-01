@@ -1,0 +1,14 @@
+soma = 0
+
+while True:
+    n = input("Digite um número (ou '999 para sair'): ")
+
+    if n == "999":
+        break
+
+    try:
+        soma += int(n)
+    except ValueError:
+        print("Digite um número válido.")
+
+print("Soma total:", soma)

@@ -1,48 +1,58 @@
 pessoas = []
 
+# Loop infinito para garantir que o nome não seja vazio
 for c in range(1, 5):
     while True:
-        nome = input(f'Digite o nome da {c}ª pessoa: ').strip()
+        # Lê o nome, removendo espaços extras no começo e no fim
+        nome = input(f"Digite o nome da {c}ª pessoa: ").strip()
+        # Se o nome não estiver vazio, sai do loop
         if nome:
             break
-        print('Nome não pode ser vazio.')
-    
+        # Se o nome estiver vazio, imprime uma mensagem de erro
+        print("Nome não pode ser vazio.")
+
+    # Loop para validar o sexo
     while True:
         try:
-            sexo_input = int(input(f'Digite o sexo da {c}ª pessoa [1] Masculino [2] Feminino: '))
+            sexo_input = int(
+                input(f"Digite o sexo da {c}ª pessoa [1] Masculino [2] Feminino: ")
+            )
             if sexo_input == 1:
-                sexo = 'Masculino'
+                sexo = "Masculino"
                 break
             elif sexo_input == 2:
-                sexo = 'Feminino'
+                sexo = "Feminino"
                 break
+            # Qualquer outro número torna-se invalido
             else:
-                print('Digite 1 para Masculino ou 2 para Feminino.')
+                print("Digite 1 para Masculino ou 2 para Feminino.")
         except ValueError:
-            print('Digite um número válido.')
-    
+            print("Digite um número válido.")
+
     while True:
         try:
-            idade = int(input(f'Digite a idade da {c}ª pessoa: '))
+            idade = int(input(f"Digite a idade da {c}ª pessoa: "))
+            # Obriga ao usuário a digitar uma idade maior que 0
             if idade > 0:
                 break
             else:
-                print('Idade deve ser maior que 0.')
+                print("Idade deve ser maior que 0.")
         except ValueError:
-            print('Digite um número válido para a idade.')
-    
-    pessoas.append({'nome': nome, 'sexo': sexo, 'idade': idade})
-    print(f'Pessoa {c}: Nome: {nome}, Sexo: {sexo}, Idade: {idade}')
+            print("Digite um número válido para a idade.")
+
+    pessoas.append({"nome": nome, "sexo": sexo, "idade": idade})
+    print(f"Pessoa {c}: Nome: {nome}, Sexo: {sexo}, Idade: {idade}")
 
 # Encontrar maior e menor idade
-idades = [p['idade'] for p in pessoas]
+idades = [p["idade"] for p in pessoas]
 maior_idade = max(idades)
 menor_idade = min(idades)
 media_idade = sum(idades) / len(idades)
 
-pessoa_maior = next(p for p in pessoas if p['idade'] == maior_idade)
-pessoa_menor = next(p for p in pessoas if p['idade'] == menor_idade)
+pessoa_maior = next(p for p in pessoas if p["idade"] == maior_idade)
+pessoa_menor = next(p for p in pessoas if p["idade"] == menor_idade)
 
 print(f'A pessoa com maior idade é {pessoa_maior["nome"]} com {maior_idade} anos.')
 print(f'A pessoa com menor idade é {pessoa_menor["nome"]} com {menor_idade} anos.')
-print(f'E a media das idades é {media_idade:.2f}.')
+print(f"E a media das idades é {media_idade:.2f}.")
+# Obrigado por olhar!!, se puder dar dicas para me ajudar em python sou todo ouvidos!#

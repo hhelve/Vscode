@@ -1,0 +1,23 @@
+from random import randint
+
+attempts = 0
+num = randint(1, 10)
+while True:
+    try:
+        guess = int(input("Digite um número entre 1 e 10: "))
+    except ValueError:
+        print("Por favor, digite apenas números inteiros.")
+        continue
+    if guess < 1 or guess > 10:
+        print("Digite um número entre 1 e 10")
+        continue
+    elif num != guess:
+        print("Voce errou! Tente novamente!")
+        attempts += 1
+    else:
+        print("Parabens, voce acertou!")
+        if attempts < 1:
+            print(f"Voce acertou na primeira tentativa!")
+        else:
+            print(f"Foram necessarias {attempts} tentativas ate voce acertar")
+        break

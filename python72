@@ -1,0 +1,54 @@
+while True:
+    # Entrada dos números
+    while True:
+        try:
+            n1 = int(input("Digite um número: "))
+            n2 = int(input("Digite outro número: "))
+            break
+        except ValueError:
+            print("Por favor, digite apenas números inteiros.")
+
+    # Menu
+    while True:
+        try:
+            question = int(
+                input(
+                    "Digite:\n"
+                    "1 para somar\n"
+                    "2 para subtrair\n"
+                    "3 para ver o maior\n"
+                    "4 para digitar novos números\n"
+                    "5 para sair\n"
+                    "Opção: "
+                )
+            )
+        except ValueError:
+            print("Digite apenas números.")
+            continue
+
+        if question == 1:
+            print(f"A soma de {n1} e {n2} é {n1 + n2}")
+
+        elif question == 2:
+            print(f"A subtração de {n1} e {n2} é {n1 - n2}")
+
+        elif question == 3:
+            if n1 > n2:
+                print(f"O maior número é {n1}")
+            elif n2 > n1:
+                print(f"O maior número é {n2}")
+            else:
+                print("Os dois números são iguais")
+
+        elif question == 4:
+            break  # volta para digitar novos números
+
+        elif question == 5:
+            print("Saindo...")
+            break  # sai do menu
+
+        else:
+            print("Opção inválida.")
+
+    if question == 5:
+        break  # sai do programa

@@ -1,0 +1,31 @@
+import numpy as np
+
+while True:
+    try:
+        ratio = int(input("Qual a razão da PA? "))
+        fn = int(input("Qual o primeiro termo? "))
+        n = int(input("Quantos termos deseja ver? "))
+
+        if ratio <= 0 or fn <= 0 or n <= 0:
+            print("Por favor, digite apenas números inteiros positivos.")
+            continue
+
+        pa_numpy = np.arange(fn, fn + n * ratio, ratio)
+        print(f"Os {n} primeiros termos dessa PA são: {pa_numpy}")
+
+    except ValueError:
+        print("Por favor, digite apenas números inteiros.")
+        continue
+
+    while True:
+        loop = input("Deseja calcular outra PA? (s/n): ").strip().lower()
+        if loop == "s":
+            break
+        elif loop == "n":
+            print("Obrigado por usar o programa.")
+            break
+        else:
+            print("Opção inválida. Digite apenas 's' ou 'n'.")
+
+    if loop == "n":
+        break

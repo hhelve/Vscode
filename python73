@@ -1,0 +1,25 @@
+from math import factorial
+
+while True:
+    try:
+        n = int(input("Digite um número para calcular o fatorial: "))
+        if n < 0:
+            print(
+                "Infelizmente, você não pode calcular o fatorial de um número negativo."
+            )
+            continue
+
+        print(f"O fatorial de {n} é {factorial(n)}.")
+
+        while True:
+            loop = input("Deseja calcular outro fatorial? (s/n): ").strip().lower()
+            if loop == "s":
+                break
+            elif loop == "n":
+                print("Obrigado por usar o programa.")
+                exit()
+            else:
+                print("Opção inválida. Digite apenas 's' ou 'n'.")
+
+    except ValueError:
+        print("Por favor, digite apenas números inteiros.")
