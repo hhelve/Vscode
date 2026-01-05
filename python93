@@ -1,0 +1,27 @@
+numbers = []
+while True:
+    try:
+        n = int(input("Enter a integer number, if you want stop enter 0: "))
+        if n < 0:
+            print("Please enter a positive number.")
+        elif n == 0:
+            break
+        elif n not in numbers:
+            numbers.append(n)
+            print("Number added.")
+        else:
+            print("Number already in the list.")
+    except ValueError:
+        print("Please enter a valid number.")
+
+total = len(numbers)
+descending_order = sorted(numbers, reverse=True)
+
+print(f"Total numbers: {total}")
+print(f"Descending order: {descending_order}")
+
+if 5 in numbers:
+    pos = numbers.index(5)
+    print(f"The number 5 is in the list and in position {pos + 1}.")
+else:
+    print("The number 5 is not in the list.")

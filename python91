@@ -1,0 +1,18 @@
+value = []
+while True:
+    n = int(input("Enter a number: "))
+    if n not in value:
+        value.append(n)
+        print("Number added.")
+    else:
+        print("Number already in the list.")
+    while True:
+        r = input("Do you want to continue? [Y/N] ").strip().upper()
+        if r == "Y":
+            break
+        elif r == "N":
+            value.sort()
+            print(f'"The typed numbers in ascending order are: {value}')
+            break
+        else:
+            print("Invalid option. Please enter Y or N.")

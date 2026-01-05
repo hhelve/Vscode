@@ -1,0 +1,30 @@
+value = []
+
+while len(value) < 4:
+    n = int(input("Digite um numero: "))
+    value.append(n)
+
+quantity = value.count(9)
+if quantity == 0:
+    print("O numero 9 nao aparece.")
+elif quantity == 1:
+    print("O valor 9 aparece 1 vez.")
+else:
+    print(f"O valor 9 aparece {quantity} vezes.")
+
+for i, valor in enumerate(value):
+    if valor == 3:
+        print(f"O valor 3 aparece na posicao {i+1}.")
+
+even_numbers = False
+contador_pares = 0
+
+for numero in value:
+    if numero % 2 == 0:
+        even_numbers = True
+        contador_pares += 1
+
+if even_numbers:
+    print(f"Possui {contador_pares} numeros pares.")
+else:
+    print("Nao possui numeros pares.")

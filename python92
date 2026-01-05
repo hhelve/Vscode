@@ -1,0 +1,18 @@
+lista = []
+
+for _ in range(5):
+    n = int(input("Digite um valor: "))
+
+    if len(lista) == 0:
+        lista.append(n)
+    else:
+        inserido = False
+        for i in range(len(lista)):
+            if n < lista[i]:
+                lista.insert(i, n)
+                inserido = True
+                break
+        if not inserido:
+            lista.append(n)
+
+print(lista)

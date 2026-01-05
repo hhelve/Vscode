@@ -1,0 +1,18 @@
+value = []
+
+while len(value) < 5:
+    try:
+        value.append(int(input("Enter a number: ")))
+    except ValueError:
+        print("Please enter a valid integer.")
+
+max_value = max(value)
+min_value = min(value)
+
+print(value)
+
+for k, v in enumerate(value):
+    if v == max_value:
+        print(f"The largest number is {max_value} in position {k + 1}")
+    if v == min_value:
+        print(f"The smallest number is {min_value} in position {k + 1}")

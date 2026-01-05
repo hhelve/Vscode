@@ -1,0 +1,10 @@
+from random import randint
+
+lista = []
+for _ in range(5):
+    lista.append(randint(1, 10))
+numeros = tuple(lista)
+print(numeros)
+print(f"O maior valor sorteado foi {max(numeros)}")
+print(f"O menor valor sorteado foi {min(numeros)}")
+print(f"A soma dos valores sorteados foi {sum(numeros)}")

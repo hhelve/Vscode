@@ -1,0 +1,17 @@
+expr = input("Digite a expressão: ")
+lista = []
+
+for c in expr:
+    if c == "(":
+        lista.append("(")
+    elif c == ")":
+        if len(lista) > 0:
+            lista.pop()
+        else:
+            print("Expressão inválida")
+            break
+else:
+    if len(lista) == 0:
+        print("Expressão válida")
+    else:
+        print("Expressão inválida")
